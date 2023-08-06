@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FoodRecipes</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>
