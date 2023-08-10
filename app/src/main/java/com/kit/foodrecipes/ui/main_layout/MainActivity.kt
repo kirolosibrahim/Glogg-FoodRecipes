@@ -15,6 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kit.foodrecipes.theme.FoodRecipesTheme
+import com.kit.foodrecipes.ui.main_layout.screens.details.MealDetailsScreen
 
 import com.kit.foodrecipes.ui.main_layout.screens.home.HomeScreen
 import com.kit.foodrecipes.ui.main_layout.screens.home.manager.HomeViewModel
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
 
                             )
                         ) {
-                         //   HomeScreen(navController = navController)
+                            MealDetailsScreen()
                         }
                     }
 

@@ -1,11 +1,16 @@
 package com.kit.domain.repository
 
 import com.kit.domain.dto.MealsResponseDTO
+import com.kit.domain.entity.MealEntity
+
 
 interface MealRepository {
 
+    suspend fun getMealByIDFromRemote(id: Int): MealsResponseDTO
+    suspend fun getMealByCategoryName(categoryName: String): MealsResponseDTO
+    suspend fun getRandomMealFromRemote(): MealsResponseDTO
 
-    suspend fun getMealByIDFromRemote(id : Int) : MealsResponseDTO
-    suspend fun getMealByCategoryName(categoryName  : String) : MealsResponseDTO
-    suspend fun getRandomMealFromRemote() : MealsResponseDTO
+    suspend fun insertMealOfTheDay(meal: MealEntity)
+
+    suspend fun getMealOfTheDay(currentDate: String):MealEntity?
 }

@@ -1,6 +1,7 @@
 package com.kit.foodrecipes.di
 
 
+import com.kit.data.datasource.local.Dao
 import com.kit.data.datasource.remote.APIService
 import com.kit.data.repository.CategoryRepositoryImpl
 import com.kit.data.repository.MealRepositoryImpl
@@ -18,8 +19,8 @@ import dagger.hilt.components.SingletonComponent
 object RepositoryModule {
 
     @Provides
-    fun provideMealRepository(apiService: APIService): MealRepository {
-        return MealRepositoryImpl(apiService)
+    fun provideMealRepository(apiService: APIService , dao: Dao): MealRepository {
+        return MealRepositoryImpl(apiService , dao)
     }
 
 

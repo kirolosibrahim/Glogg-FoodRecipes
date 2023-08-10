@@ -8,10 +8,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+import javax.net.ssl.HostnameVerifier
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -21,8 +23,12 @@ object NetworkModule {
     @Singleton
     fun provideOkHTTP(): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(20, TimeUnit.SECONDS)
-            .readTimeout(20, TimeUnit.SECONDS)
+            .connectTimeout(1, TimeUnit.DAYS)
+            .readTimeout(1, TimeUnit.DAYS)
+            .writeTimeout(1, TimeUnit.DAYS)
+            .retryOnConnectionFailure(true)
+            .callTimeout(1, TimeUnit.DAYS)
+            .hostnameVerifier { _, _ -> true }
             .build()
     }
 

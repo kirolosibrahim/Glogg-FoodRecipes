@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.kit.domain.usecases.GetHomeCategoriesUseCase
 import com.kit.domain.usecases.GetRecipeOfTheDayUseCase
 import com.kit.domain.utils.Resource
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -24,10 +25,12 @@ class HomeViewModel @Inject constructor(
         private set
 
 
-
     init {
-        getRecipeOfTheDay()
+
         getCategories()
+        getRecipeOfTheDay()
+
+
     }
 
     private fun getRecipeOfTheDay() {
@@ -35,15 +38,16 @@ class HomeViewModel @Inject constructor(
         getRecipeOfTheDayUseCase.invoke().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    state.recipeOfTheDayState = state.recipeOfTheDayState.copy(meal = result.data)
+                    state = state.copy(meal = result.data,
+                        isLoading = true)
                 }
 
                 is Resource.Loading -> {
-                    state.recipeOfTheDayState  = state.recipeOfTheDayState.copy(isLoading = true)
+
                 }
 
                 is Resource.Error -> {
-                    state.recipeOfTheDayState  = state.recipeOfTheDayState.copy(
+                    state = state.copy(
                         error = result.message ?: " An unexpected error occurred"
                     )
                 }
@@ -52,21 +56,24 @@ class HomeViewModel @Inject constructor(
     }
 
 
-
     private fun getCategories() {
 
         getHomeCategoriesUseCase.invoke().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    state.homeCategoriesState = HomeCategoriesState(categories = result.data?: emptyList())
+                    state = state.copy(
+                        categories = result.data ?: emptyList(),
+                        isLoading = false
+                    )
                 }
 
                 is Resource.Loading -> {
-                    state.homeCategoriesState  = HomeCategoriesState(isLoading = true)
+                    state = state.copy(isLoading = true)
+
                 }
 
                 is Resource.Error -> {
-                    state.homeCategoriesState  = HomeCategoriesState(
+                    state = state.copy(
                         error = result.message ?: " An unexpected error occurred"
                     )
                 }

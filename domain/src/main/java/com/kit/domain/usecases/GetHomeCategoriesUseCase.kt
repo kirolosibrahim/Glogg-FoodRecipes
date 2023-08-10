@@ -1,9 +1,9 @@
 package com.kit.domain.usecases
 
 import com.kit.domain.dto.toHomeCategoryModel
+import com.kit.domain.dto.toMealModel
 import com.kit.domain.model.HomeCategoryModel
-import com.kit.domain.model.MealModel
-import com.kit.domain.model.toMealModel
+
 import com.kit.domain.repository.CategoryRepository
 import com.kit.domain.repository.MealRepository
 import com.kit.domain.utils.Resource
@@ -23,7 +23,7 @@ class GetHomeCategoriesUseCase(
             val homeCategoryModel = categoryRepository.getCategoriesFromRemote().categories.let { categoriesDTO->
 
                 categoriesDTO.map {categoryDTO->
-                    categoryDTO.toHomeCategoryModel(mealRepository.getMealByCategoryName(categoryDTO.strCategory).meals.map {
+                    categoryDTO.toHomeCategoryModel(mealRepository.getMealByCategoryName(categoryDTO.strCategory).meals.take(5).map {
                         it.toMealModel()
                     })
                 }
@@ -31,8 +31,6 @@ class GetHomeCategoriesUseCase(
             }
 
 
-println(homeCategoryModel.first().meals.toString())
-println(homeCategoryModel.first().name.toString())
             emit(Resource.Success<List<HomeCategoryModel>>(homeCategoryModel))
 
         } catch (e: HttpException) {
