@@ -1,5 +1,6 @@
 package com.kit.domain.usecases
 
+import androidx.annotation.Keep
 import com.kit.domain.dto.toHomeCategoryModel
 import com.kit.domain.dto.toMealModel
 import com.kit.domain.model.HomeCategoryModel
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
-
+@Keep
 class GetHomeCategoriesUseCase(
     private val categoryRepository: CategoryRepository, private val mealRepository: MealRepository
 ) {

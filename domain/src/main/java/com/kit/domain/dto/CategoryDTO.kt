@@ -1,10 +1,12 @@
 package com.kit.domain.dto
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.kit.domain.model.HomeCategoryModel
 import com.kit.domain.model.MealModel
 
+@Keep
 data class CategoryDTO(
     @SerializedName("idCategory")
     val idCategory: String,
@@ -17,4 +19,4 @@ data class CategoryDTO(
 )
 
 
-fun CategoryDTO.toHomeCategoryModel( mealsList  :List<MealModel>) = HomeCategoryModel(name = strCategory , id = idCategory , meals =mealsList  )
+fun CategoryDTO.toHomeCategoryModel( mealsList  :List<MealModel>) = HomeCategoryModel(name = strCategory , id = idCategory , image = strCategoryThumb?: "", meals =mealsList  )

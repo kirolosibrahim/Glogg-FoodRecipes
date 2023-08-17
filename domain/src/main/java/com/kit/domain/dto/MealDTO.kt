@@ -1,10 +1,12 @@
 package com.kit.domain.dto
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.kit.domain.model.IngredientModel
 import com.kit.domain.model.MealModel
 
+@Keep
 
 data class MealDTO(
     @SerializedName("dateModified") val dateModified: String?,
@@ -69,51 +71,170 @@ fun MealDTO.toMealModel() = MealModel(
     area = strArea ?: "",
     imageURL = strMealThumb ?: "",
     videoURL = strYoutube ?: "",
+    date = null,
+    recipe = strInstructions ?: "",
     ingredients = listOf(
-        if (strIngredient1.isNullOrBlank()) {
-            IngredientModel(strIngredient1 ?: "", strMeasure1 ?: "")
-        } else if (strIngredient2.isNullOrBlank()) {
-            IngredientModel(strIngredient2 ?: "", strMeasure2 ?: "")
-        } else if (strIngredient3.isNullOrBlank()) {
-            IngredientModel(strIngredient3 ?: "", strMeasure3 ?: "")
-        } else if (strIngredient4.isNullOrBlank()) {
-            IngredientModel(strIngredient4 ?: "", strMeasure4 ?: "")
-        } else if (strIngredient5.isNullOrBlank()) {
-            IngredientModel(strIngredient5 ?: "", strMeasure5 ?: "")
-        } else if (strIngredient6.isNullOrBlank()) {
-            IngredientModel(strIngredient6 ?: "", strMeasure6 ?: "")
-        } else if (strIngredient7.isNullOrBlank()) {
-            IngredientModel(strIngredient7 ?: "", strMeasure7 ?: "")
-        } else if (strIngredient8.isNullOrBlank()) {
-            IngredientModel(strIngredient8 ?: "", strMeasure8 ?: "")
-        } else if (strIngredient9.isNullOrBlank()) {
-            IngredientModel(strIngredient9 ?: "", strMeasure9 ?: "")
-        } else if (strIngredient10.isNullOrBlank()) {
-            IngredientModel(strIngredient10 ?: "", strMeasure10 ?: "")
-        } else if (strIngredient11.isNullOrBlank()) {
-            IngredientModel(strIngredient11 ?: "", strMeasure11 ?: "")
-        } else if (strIngredient12.isNullOrBlank()) {
-            IngredientModel(strIngredient12 ?: "", strMeasure12 ?: "")
-        } else if (strIngredient13.isNullOrBlank()) {
-            IngredientModel(strIngredient13 ?: "", strMeasure13 ?: "")
-        } else if (strIngredient14.isNullOrBlank()) {
-            IngredientModel(strIngredient14 ?: "", strMeasure14 ?: "")
-        } else if (strIngredient15.isNullOrBlank()) {
-            IngredientModel(strIngredient15 ?: "", strMeasure15 ?: "")
-        } else if (strIngredient16.isNullOrBlank()) {
-            IngredientModel(strIngredient16 ?: "", strMeasure16 ?: "")
-        } else if (strIngredient17.isNullOrBlank()) {
-            IngredientModel(strIngredient17 ?: "", strMeasure17 ?: "")
-        } else if (strIngredient18.isNullOrBlank()) {
-            IngredientModel(strIngredient18 ?: "", strMeasure18 ?: "")
-        } else if (strIngredient19.isNullOrBlank()) {
-            IngredientModel(strIngredient19 ?: "", strMeasure19 ?: "")
-        } else if (strIngredient20.isNullOrBlank()) {
-            IngredientModel(strIngredient20 ?: "", strMeasure20 ?: "")
+        if (!strIngredient1.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient1 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient1 + ".png",
+                strMeasure1 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient2.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient2 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient2 + ".png",
+                strMeasure2 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient3.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient3 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient3 + ".png",
+                strMeasure3 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient4.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient4 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient4 + ".png",
+                strMeasure4 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient5.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient5 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient5 + ".png",
+                strMeasure5 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient6.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient6 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient6 + ".png",
+                strMeasure6 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient7.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient7 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient7 + ".png",
+                strMeasure7 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient8.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient8 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient8 + ".png",
+                strMeasure8 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient9.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient9 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient9 + ".png",
+                strMeasure9 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient10.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient10 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient10 + ".png",
+                strMeasure10 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient11.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient11 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient11 + ".png",
+                strMeasure11 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient12.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient12 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient12 + ".png",
+                strMeasure12 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient13.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient13 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient13 + ".png",
+                strMeasure13 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient14.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient14 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient14 + ".png",
+                strMeasure14 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient15.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient15 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient15 + ".png",
+                strMeasure15 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient16.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient16 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient16 + ".png",
+                strMeasure16 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient17.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient17 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient17 + ".png",
+                strMeasure17 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient18.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient18 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient18 + ".png",
+                strMeasure18 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient19.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient19 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient19 + ".png",
+                strMeasure19 ?: ""
+            )
+        } else {
+            null
+        }, if (!strIngredient20.isNullOrBlank()) {
+            IngredientModel(
+                strIngredient20 ?: "",
+                "https://www.themealdb.com/images/ingredients/" + strIngredient20 + ".png",
+                strMeasure20 ?: ""
+            )
         } else {
             null
         }
-
 
     )
 )

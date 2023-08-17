@@ -12,21 +12,24 @@ data class MealModel(
     val ingredients: List<IngredientModel?>,
     val imageURL: String?,
     val videoURL: String?,
+    val date: String?,
     val isSaved: Boolean = false,
     val isFavorite: Boolean = false,
-    val isMealOfTheDay: Boolean = false
+    val isMealOfTheDay: Boolean = false,
+    val recipe: String
 )
 
-fun MealModel.toMealEntity(date: String) = MealEntity(
+fun MealModel.toMealEntity(currentDate: String? = null) = MealEntity(
     id = id,
     name = name,
     ingredients = ingredients,
-    date = date,
+    date = date?: currentDate,
     isFavorite = isFavorite,
     isMealOfTheDay = isMealOfTheDay,
     area = area,
     isSaved = isSaved,
     videoURL = videoURL,
     category = category,
-    imageURL = imageURL
+    imageURL = imageURL,
+            recipe = recipe
 )

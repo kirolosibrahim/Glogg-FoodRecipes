@@ -2,7 +2,6 @@ package com.kit.domain.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 
 import com.kit.domain.model.IngredientModel
 import com.kit.domain.model.MealModel
@@ -21,18 +20,22 @@ data class MealEntity(
     val isSaved: Boolean = false,
     val isFavorite: Boolean = false,
     val isMealOfTheDay: Boolean = false,
-    val date: String
+    val date: String? = null,
+    val recipe: String
 )
+
 fun MealEntity.toMealModel() = MealModel(
 
     id = id,
     name = name,
-ingredients =ingredients,
+    category = category,
+    area = area,
+    ingredients = ingredients,
+    imageURL = imageURL,
+    videoURL = videoURL,
+    date = date,
+    isSaved = isSaved,
     isFavorite = isFavorite,
     isMealOfTheDay = isMealOfTheDay,
-    area = area,
-    isSaved = isSaved,
-    videoURL = videoURL,
-    category = category,
-    imageURL = imageURL
+    recipe = recipe
 )

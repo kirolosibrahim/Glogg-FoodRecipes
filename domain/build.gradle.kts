@@ -1,12 +1,19 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.devtools.ksp")
 }
+kotlin {
+    sourceSets {
+        main{
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
+            }
+        }
 
+    }
+}
 android {
     namespace = "com.kit.domain"
     compileSdk = 33

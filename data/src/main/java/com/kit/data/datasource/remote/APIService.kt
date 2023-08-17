@@ -1,14 +1,13 @@
 package com.kit.data.datasource.remote
 
+import androidx.annotation.Keep
 import com.kit.data.util.Constants
 import com.kit.domain.dto.CategoryResponseDTO
-import com.kit.domain.dto.MealDTO
 import com.kit.domain.dto.MealsResponseDTO
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
-
+@Keep
 interface APIService {
 
     @GET(Constants.GET_RANDOM_MEAL)

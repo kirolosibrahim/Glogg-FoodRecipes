@@ -28,6 +28,6 @@ object LocalModule {
             RoomDB::class.java,
             RoomDB.DATABASE_Name,
 
-        ).build().dao
+        ).fallbackToDestructiveMigration().build().dao
     }
 }

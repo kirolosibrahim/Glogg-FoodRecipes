@@ -19,6 +19,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
@@ -26,16 +28,17 @@ import com.kit.domain.model.MealModel
 import com.kit.foodrecipes.theme.BigCasIonFBBold
 import com.kit.foodrecipes.theme.primaryColor
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun RecipeOfTheDayItem(
     modifier: Modifier = Modifier, meal: MealModel, onItemClick: (MealModel) -> Unit
 ) {
     Box(modifier = modifier.clickable { onItemClick(meal) }
     ) {
-        GlideImage(
+        SubcomposeAsyncImage(
             model = meal.imageURL,
-
+            loading = {
+                CircularProgressIndicator()
+            },
             modifier = Modifier.fillMaxSize(),
             contentDescription = "",
             contentScale = ContentScale.Crop,

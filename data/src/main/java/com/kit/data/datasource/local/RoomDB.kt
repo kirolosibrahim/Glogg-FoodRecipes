@@ -7,7 +7,7 @@ import androidx.room.TypeConverters
 import com.kit.domain.entity.MealEntity
 
 @Database(
-    entities = [MealEntity::class], version = 3, exportSchema = false
+    entities = [MealEntity::class], version = 5, exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class RoomDB : RoomDatabase() {

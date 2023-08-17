@@ -1,5 +1,6 @@
 package com.kit.foodrecipes.ui.main_layout.screens.home.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,25 +18,26 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.kit.domain.model.MealModel
 import com.kit.foodrecipes.theme.FuturaPTBook
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun CategoryHomeItem(meal: MealModel) {
+fun CategoryHomeItem(meal: MealModel , onItemClick : (String)->Unit) {
 
 
     Column(
-        modifier = Modifier.width(150.dp)
-            .wrapContentHeight()
-            .padding(end = 8.dp)
+        modifier = Modifier.width(150.dp).padding(end = 8.dp).clickable {onItemClick(meal.id)  }
     ) {
 
-        GlideImage(
-
+        SubcomposeAsyncImage(
+            loading = {
+                CircularProgressIndicator()
+            },
             model = meal.imageURL ?: "",
             modifier = Modifier.size(150.dp).clip(RoundedCornerShape(15.dp)),
             contentDescription = "",

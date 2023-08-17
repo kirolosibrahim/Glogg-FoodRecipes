@@ -5,5 +5,6 @@ sealed class Screen(
 
 ){
     object HomeScreen : Screen("home_screen")
-    object MealDetailsScreen : Screen("meal_details_Screen")
+    object MealDetailsScreen : Screen("meal_details_screen")
+    object CategoryScreen : Screen("category_screen")
 }

@@ -1,10 +1,15 @@
+@file:Suppress("COMPATIBILITY_WARNING")
+
+import org.jetbrains.kotlin.cli.jvm.main
 
 plugins {
+
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("androidx.baselineprofile")
 }
 
 android {
@@ -17,13 +22,13 @@ android {
         }
     }
     namespace = "com.kit.foodrecipes"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
 
         applicationId = "com.kit.foodrecipes"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -34,15 +39,29 @@ android {
 
         buildTypes {
             release {
+                // Enables code shrinking, obfuscation, and optimization for only
+                // your project's release build type. Make sure to use a build
+                isDebuggable=false
+                isMinifyEnabled = true
+
+                // Enables resource shrinking, which is performed by the
+                // Android Gradle plugin.
+                isShrinkResources = true
+
+                // Includes the default ProGuard rules files that are packaged with
+                // the Android Gradle plugin. To learn more, go to the section about
+                // R8 configuration files.
                 proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
                 )
-                isMinifyEnabled =  false
 
 
+                versionNameSuffix = "-release"
+                applicationIdSuffix = ".release"
+                signingConfig = signingConfigs.getByName("release")
             }
         }
-
 
         // Allow references to generated code
         kapt {
@@ -81,33 +100,18 @@ android {
 ////            signingConfig = signingConfigs.getByName("debug")
 ////        }
 //
-//        release {
-//            // Enables code shrinking, obfuscation, and optimization for only
-//            // your project's release build type. Make sure to use a build
-//             isDebuggable=true
-//            isMinifyEnabled = true
 //
-//            // Enables resource shrinking, which is performed by the
-//            // Android Gradle plugin.
-//            isShrinkResources = true
-//
-//            // Includes the default ProGuard rules files that are packaged with
-//            // the Android Gradle plugin. To learn more, go to the section about
-//            // R8 configuration files.
-////            proguardFiles(
-////                getDefaultProguardFile("proguard-android-optimize.txt"),
-////                "proguard-rules.pro"
-////            )
-//
-//
-//            versionNameSuffix = "-release"
-//            applicationIdSuffix = ".release"
-//            signingConfig = signingConfigs.getByName("release")
-//        }
 //
 //
 //    }
 
+    kotlin {
+        sourceSets {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
+            }
+        }
+    }
 
     dependencies {
 
@@ -130,8 +134,16 @@ android {
         androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
         debugImplementation("androidx.compose.ui:ui-tooling:1.4.3")
         debugImplementation("androidx.compose.ui:ui-test-manifest:1.4.3")
-
+        implementation("androidx.compose.material:material-icons-extended")
         implementation("androidx.navigation:navigation-compose:2.6.0")
+        implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
+
+        implementation("io.coil-kt:coil-compose:2.4.0")
+
+
+        val nav_version = "2.7.0"
+
+        implementation("androidx.navigation:navigation-compose:$nav_version")
 
         val multidex_version = "2.0.1"
         implementation("androidx.multidex:multidex:$multidex_version")
@@ -154,6 +166,10 @@ android {
         implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
 
+
+        implementation("com.github.Gurupreet:FontAwesomeCompose:1.0.0")
+
+
         val room_version = "2.5.2"
 
         implementation("androidx.room:room-runtime:$room_version")
@@ -163,4 +179,8 @@ android {
         kapt("androidx.room:room-compiler:$room_version")
     }
 
+}
+dependencies {
+    implementation("androidx.profileinstaller:profileinstaller:1.3.0")
+    "baselineProfile"(project(":baselineprofile"))
 }

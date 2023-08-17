@@ -62,7 +62,7 @@ class HomeViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     state = state.copy(
-                        categories = result.data ?: emptyList(),
+                        categories = result.data?.sortedBy { it.name } ?: emptyList(),
                         isLoading = false
                     )
                 }
@@ -74,7 +74,8 @@ class HomeViewModel @Inject constructor(
 
                 is Resource.Error -> {
                     state = state.copy(
-                        error = result.message ?: " An unexpected error occurred"
+                        error = result.message ?: " An unexpected error occurred",
+                        isLoading = false
                     )
                 }
             }

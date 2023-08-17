@@ -29,7 +29,7 @@ interface Dao {
 
 
     @Insert(onConflict =  OnConflictStrategy.REPLACE)
-    suspend fun insertMeal(note : MealEntity)
+    suspend fun insertMeal(note : MealEntity) : Long
 
     @Delete
     suspend fun deleteMeal(note: MealEntity)

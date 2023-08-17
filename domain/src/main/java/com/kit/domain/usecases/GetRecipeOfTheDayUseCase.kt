@@ -22,13 +22,10 @@ class GetRecipeOfTheDayUseCase(private val repository: MealRepository) {
     operator fun invoke(): Flow<Resource<MealModel>> = flow {
         try {
             emit(Resource.Loading<MealModel>())
-
             val sdf = SimpleDateFormat("dd-MM-yyyy")
             val currentDate = sdf.format(Date())
-            if (repository.getMealOfTheDay(currentDate) != null) {
-
-
-                val meal = repository.getMealOfTheDay(currentDate)
+            if (repository.getMealOfTheDayFromCash(currentDate) != null) {
+                val meal = repository.getMealOfTheDayFromCash(currentDate)
                 meal?.let {
                     emit(Resource.Success<MealModel>(it.toMealModel()))
                 }
