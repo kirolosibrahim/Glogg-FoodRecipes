@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.kit.domain.model.MealModel
 import com.kit.foodrecipes.core.MealResultItem
-import com.kit.foodrecipes.theme.primaryColor
+import com.kit.foodrecipes.ui.theme.primaryColor
 import com.kit.foodrecipes.ui.category.components.CategoryHeader
 import com.kit.foodrecipes.ui.category.manager.CategoryScreenEvent
 import com.kit.foodrecipes.ui.category.manager.CategoryScreenState

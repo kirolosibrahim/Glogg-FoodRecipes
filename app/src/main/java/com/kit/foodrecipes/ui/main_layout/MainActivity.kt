@@ -16,13 +16,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.kit.foodrecipes.theme.FoodRecipesTheme
 import com.kit.foodrecipes.ui.category.CategoryScreen
 import com.kit.foodrecipes.ui.category.viewmodel.CategoryViewModel
 import com.kit.foodrecipes.ui.details.MealDetailsScreen
 import com.kit.foodrecipes.ui.details.viewmodel.MealDetailsViewModel
-import com.kit.foodrecipes.ui.main_layout.screens.home.HomeScreen2
+import com.kit.foodrecipes.ui.main_layout.screens.home.HomeScreen
 import com.kit.foodrecipes.ui.main_layout.screens.home.manager.HomeViewModel
+import com.kit.foodrecipes.ui.theme.FoodRecipesTheme
 import com.kit.foodrecipes.utils.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Screen.HomeScreen.route) {
                             val viewModel: HomeViewModel = hiltViewModel()
-                            HomeScreen2(navController = navController,state =  viewModel.state)
+                            HomeScreen(navController = navController,state =  viewModel.state)
                         }
                         composable(
                             route = Screen.MealDetailsScreen.route + "?id={id}",

@@ -24,7 +24,7 @@ import coil.compose.SubcomposeAsyncImage
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.kit.domain.model.MealModel
-import com.kit.foodrecipes.theme.FuturaPTBook
+import com.kit.foodrecipes.ui.theme.FuturaPTBook
 
 @Composable
 fun CategoryHomeItem(meal: MealModel , onItemClick : (String)->Unit) {

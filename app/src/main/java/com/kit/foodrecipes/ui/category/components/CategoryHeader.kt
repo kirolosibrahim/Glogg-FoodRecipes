@@ -22,8 +22,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
-import com.kit.foodrecipes.theme.BigCasIonFBBold
-import com.kit.foodrecipes.theme.primaryColor
+import com.kit.foodrecipes.ui.theme.BigCasIonFBBold
+import com.kit.foodrecipes.ui.theme.primaryColor
 
 
 @Composable

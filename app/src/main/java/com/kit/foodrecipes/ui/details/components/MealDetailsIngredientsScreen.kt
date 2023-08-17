@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
 import com.kit.domain.model.IngredientModel
-import com.kit.foodrecipes.theme.FuturaPTBook
-import com.kit.foodrecipes.theme.primaryColor
+import com.kit.foodrecipes.ui.theme.FuturaPTBook
+import com.kit.foodrecipes.ui.theme.primaryColor
 
 @Composable
 fun MealDetailsIngredientsScreen(modifier: Modifier, ingredients: List<IngredientModel?>) {

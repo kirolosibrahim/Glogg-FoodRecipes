@@ -1,4 +1,4 @@
-package com.kit.foodrecipes.theme
+package com.kit.foodrecipes.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFFA14000)

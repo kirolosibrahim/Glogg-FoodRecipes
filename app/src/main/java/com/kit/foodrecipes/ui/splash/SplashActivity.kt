@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
 import com.kit.foodrecipes.R
-import com.kit.foodrecipes.theme.BigCasIonFBRegular
-import com.kit.foodrecipes.theme.FoodRecipesTheme
+import com.kit.foodrecipes.ui.theme.BigCasIonFBRegular
+import com.kit.foodrecipes.ui.theme.FoodRecipesTheme
 import com.kit.foodrecipes.ui.main_layout.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

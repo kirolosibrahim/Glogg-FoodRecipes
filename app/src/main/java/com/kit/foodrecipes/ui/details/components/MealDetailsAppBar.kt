@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.kit.domain.model.MealModel
-import com.kit.foodrecipes.theme.primaryColor
+import com.kit.foodrecipes.ui.theme.primaryColor
 import com.kit.foodrecipes.ui.details.manager.MealDetailsState
 
 @OptIn(ExperimentalMaterial3Api::class)

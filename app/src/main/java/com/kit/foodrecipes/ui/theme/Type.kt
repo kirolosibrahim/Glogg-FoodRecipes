@@ -1,4 +1,4 @@
-package com.kit.foodrecipes.theme
+package com.kit.foodrecipes.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

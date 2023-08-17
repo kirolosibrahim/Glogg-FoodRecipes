@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
-import com.kit.foodrecipes.theme.BigCasIonFBBold
+import com.kit.foodrecipes.ui.theme.BigCasIonFBBold
 
 @Composable
 fun MealResultItem(

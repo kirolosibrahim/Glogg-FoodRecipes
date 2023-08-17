@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.kit.foodrecipes.core.YoutubeAlert
-import com.kit.foodrecipes.theme.BigCasIonFBBold
+import com.kit.foodrecipes.ui.theme.BigCasIonFBBold
 import com.kit.foodrecipes.ui.details.components.MealDetailsAppBar
 import com.kit.foodrecipes.ui.details.components.MealDetailsHeader
 import com.kit.foodrecipes.ui.details.components.MealDetailsIngredientsScreen

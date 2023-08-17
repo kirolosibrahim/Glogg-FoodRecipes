@@ -25,8 +25,8 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
 import com.kit.domain.model.MealModel
-import com.kit.foodrecipes.theme.BigCasIonFBBold
-import com.kit.foodrecipes.theme.primaryColor
+import com.kit.foodrecipes.ui.theme.BigCasIonFBBold
+import com.kit.foodrecipes.ui.theme.primaryColor
 
 @Composable
 fun RecipeOfTheDayItem(
